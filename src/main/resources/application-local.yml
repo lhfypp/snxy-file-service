@@ -1,0 +1,35 @@
+server:
+   port: 9002
+
+spring:
+    application:
+      name: snxy-file-service
+    http:
+      multipart:
+        max-file-size: 20MB
+        max-request-size: 20MB
+    jmx:
+      enabled: false
+
+eureka:
+   client:
+     service-url:
+       defaultZone: http://localhost:8081/eureka/
+   instance:
+     instance-id: ${spring.application.name}:${server.port}
+     prefer-ip-address: true
+     lease-renewal-interval-in-seconds: 5
+     lease-expiration-duration-in-seconds: 5
+
+
+file:
+  path: D:/file
+
+fdfs:
+  so-timeout: 1500
+  connection-timeout: 600
+  thumb-image:
+    width: 150
+    height: 150
+  tracker-list: 192.168.149.132:22122
+
